@@ -33,7 +33,7 @@ jobs:
         name: dist-artifact-${{ matrix.node-version }}
         path: |
           dist
-    
+
     - name: Archive
       uses: actions/upload-artifact@v3
       with:
