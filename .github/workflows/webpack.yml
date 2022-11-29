@@ -36,8 +36,6 @@ jobs:
 
     - name: Archive Pages
       uses: actions/upload-pages-artifact@v1
-      with:
-        name: github-pages
 
   deploy:
     needs: build
