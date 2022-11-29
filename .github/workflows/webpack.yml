@@ -34,8 +34,12 @@ jobs:
         path: |
           dist
 
-    - name: Archive Pages
+    - name: Setup Pages
+      uses: actions/configure-pages@v1
+    - name: Upload artifact
       uses: actions/upload-pages-artifact@v1
+      with:
+        path: '.'
 
   deploy:
     needs: build
