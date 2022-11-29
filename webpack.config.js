@@ -11,8 +11,8 @@ module.exports = {
               },
         ],
     },
-    resovle: {
-        extension: [ '.tsx', '.ts', '.js' ],
+    resolve: {
+        extensions: [ '.tsx', '.ts', '.js' ],
     },
     output: {
         filename: 'bundle.js',
