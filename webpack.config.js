@@ -20,7 +20,7 @@ module.exports = {
     plugins: [
         // https://webpack.js.org/plugins/copy-webpack-plugin/
         new HtmlWebpackPlugin({
-            title: 'Output Management',
+            title: 'Quartets | Liam L',
             patterns: [
                 { from: "src", to: "dst" },
               ],
