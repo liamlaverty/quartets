@@ -1,4 +1,4 @@
-name: NodeJS with Webpack
+name: Build and deploy
 
 on:
   push:
@@ -41,12 +41,12 @@ jobs:
         path: |
           dist
     - name: Archive Pages
-      uses: actions/upload-artifact@v3
-      with:
-        name: github-pages
-        path: |
-          dist
-          
+      uses: actions/upload-pages-artifact@v3
+      # with:
+      #   name: github-pages
+      #   path: |
+      #     dist
+
   deploy:
     needs: build
     permissions:
