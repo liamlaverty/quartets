@@ -30,7 +30,7 @@ jobs:
     - name: Archive
       uses: actions/upload-artifact@v3
       with:
-        name: dist-artifact-{{ matrix.node-version }}
+        name: dist-artifact-${{ matrix.node-version }}
         path: |
           dist
     
