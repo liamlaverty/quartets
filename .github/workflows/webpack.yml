@@ -41,7 +41,7 @@ jobs:
         path: |
           dist
     - name: Archive Pages
-      uses: actions/upload-pages-artifact@main
+      uses: actions/upload-pages-artifact@v1
       # with:
       #   name: github-pages
       #   path: |
