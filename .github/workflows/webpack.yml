@@ -40,8 +40,9 @@ jobs:
         name: dist-pages-artifact-${{ matrix.node-version }}
         path: |
           dist
-    - name: Archive Pages
-      uses: actions/upload-pages-artifact@v1
+
+    # - name: Archive Pages
+    #   uses: actions/upload-pages-artifact@v1
       # with:
       #   name: github-pages
       #   path: |
