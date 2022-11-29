@@ -1,6 +1,6 @@
 # Quartets
 
-Simple typescript application with webpack preinstalled & configured
+Simple typescript application with webpack preinstalled & configured 
 
 
 
