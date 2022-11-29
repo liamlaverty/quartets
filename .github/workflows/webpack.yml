@@ -66,4 +66,5 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
-        artifact_name: dist-pages-artifact-14.x
+        with: 
+          artifact_name: dist-pages-artifact-14.x
