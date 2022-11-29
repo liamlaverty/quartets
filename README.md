@@ -1,6 +1,6 @@
 # Quartets
 
-Simple typescript application with webpack preinstalled & configured
+Simple typescript application with webpack pre-installed & configured. Includes some starter github actions that'll deploy the compiled site whenever commits are made to the `main` branch
 
 
 
