@@ -1,11 +1,16 @@
+import { autoInjectable, singleton } from 'tsyringe';
+import { HtmlService } from '../core/graphics/html/HtmlService';
+
+@singleton()
 export class Game {
 
 
     private running: boolean = false;
 
+    private htmlService: HtmlService;
 
-    constructor() {
-
+    constructor(htmlService: HtmlService) {
+        this.htmlService = htmlService;
     }
 
     Run() {
