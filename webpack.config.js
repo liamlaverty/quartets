@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = {
     mode: 'development',
@@ -32,6 +33,10 @@ module.exports = {
             patterns: [
                 { from: "src", to: "dst" },
               ],
+        }),
+        // https://webpack.js.org/plugins/eslint-webpack-plugin/
+        new ESLintPlugin({
+            extensions: [ '.tsx', '.ts', '.js' ],
         }),
     ],
     output: {

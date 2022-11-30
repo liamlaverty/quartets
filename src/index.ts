@@ -5,11 +5,11 @@ import { Game } from './application/game'
 
 
 export class App {
-    constructor() {
+    // constructor() {
 
-    }
+    // }
 
-    start() {
+    start(){
         const game = container.resolve(Game);
         // const game = new Game();
         game.Run();

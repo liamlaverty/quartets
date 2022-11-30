@@ -4,16 +4,14 @@ import { HtmlService } from '../core/graphics/html/HtmlService';
 @singleton()
 export class Game {
 
-
-    private running: boolean = false;
-
+    private running = false;
     private htmlService: HtmlService;
 
     constructor(htmlService: HtmlService) {
         this.htmlService = htmlService;
     }
 
-    Run() {
+    Run(): void {
         console.log('run called in game.ts');
 
         this.Init();
@@ -21,7 +19,7 @@ export class Game {
         this.Loop();
     }
 
-    private Init() {
+    private Init(): void {
         console.log('Init has been called');
     }
 
