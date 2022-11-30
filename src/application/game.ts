@@ -1,4 +1,4 @@
-import { autoInjectable, singleton } from 'tsyringe';
+import { singleton } from 'tsyringe';
 import { HtmlService } from '../core/graphics/html/HtmlService';
 
 @singleton()
