@@ -15,16 +15,16 @@ Start builder to build the application
 `npm run build`
 
 
-## Github Pages: 
+## Github Pages
 https://liamlaverty.github.io/quartets/
 
-## Github Actions: 
+## Github Actions
 
 - Automatically builds using WebPack whenever a PR is made to the `main` branch
 - Has a 1-click-deploy whenever a PR is successfully closed in the `main` branch
 - https://github.com/liamlaverty/quartets/blob/main/.github/workflows/webpack.yml
 
-## Using as a template: 
+## Using as a template
 
 - If you use this repo as a template, you need to reconfigure the Github Pages to work with the new Github Actions
 - Click settings, then Pages
@@ -35,3 +35,8 @@ https://liamlaverty.github.io/quartets/
   - Return to Settings -> Pages, and check that it's setup correctly
   - Navigate to the Actions page to see the new workflow (you should be prompted to approve a deployment when the `build` action is complete
   
+
+
+## SCSS support
+
+SCSS files can be found in `./src/scss/`. The main entry file is `./src/scss/_style.scss`. It's imported by the `./src/index.ts` file.
