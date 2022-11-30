@@ -1,3 +1,5 @@
+import "./scss/_style.scss";
+
 class Student {
     fullName: string;
     constructor(
@@ -9,7 +11,7 @@ class Student {
     }
 }
 
-
+ 
 
 interface Person {
     firstName: string;
