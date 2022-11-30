@@ -16,13 +16,13 @@ export class Game {
         this.Loop();
     }
 
-    private Init(): string {
-        return 'Init has been called';
+    private Init() {
+        console.log('Init has been called');
     }
 
 
-    private Loop(): string {
-        return 'Loop has been called';
+    private Loop() {
+        console.log('Loop has been called');
     }
 
 }
