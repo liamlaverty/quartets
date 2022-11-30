@@ -1,14 +1,15 @@
-import { singleton } from 'tsyringe';
-import { HtmlService } from '../core/graphics/html/HtmlService';
+import { inject, singleton } from 'tsyringe';
+import { IHtmlService } from "../core/graphics/html/IHtmlService";
 
 @singleton()
 export class Game {
 
     private running = false;
-    private htmlService: HtmlService;
+    // private htmlService: IHtmlService;
 
-    constructor(htmlService: HtmlService) {
-        this.htmlService = htmlService;
+    constructor(
+        @inject("IHtmlService") private htmlService: IHtmlService
+        ){
     }
 
     Run(): void {
@@ -17,6 +18,7 @@ export class Game {
         this.Init();
         this.running = true;
         this.Loop();
+        this.htmlService.getMainDiv();
     }
 
     private Init(): void {

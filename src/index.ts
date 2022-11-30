@@ -2,16 +2,18 @@ import 'reflect-metadata';
 import { container } from 'tsyringe';
 import "./scss/_style.scss";
 import { Game } from './application/game'
+import { HtmlService } from './core/graphics/html/HtmlService';
 
 
 export class App {
-    // constructor() {
-
-    // }
+    constructor() {
+        container.register("IHtmlService", {
+            useClass: HtmlService
+        });
+    } 
 
     start(){
         const game = container.resolve(Game);
-        // const game = new Game();
         game.Run();
     }
 }
