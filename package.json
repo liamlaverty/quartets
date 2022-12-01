@@ -22,12 +22,14 @@
     "ts-loader": "^9.4.1",
     "typescript": "^4.9.3",
     "webpack": "^5.75.0",
-    "webpack-cli": "^5.0.0"
+    "webpack-cli": "^5.0.0",
+    "webpack-dev-server": "^4.11.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "\"webpack\" & echo 'Build finished'",
-    "watch": "\"webpack --watch\""
+    "watch": "\"webpack --watch\"",
+    "serve": "\"webpack serve --open\""
   },
   "repository": {
     "type": "git",

@@ -24,7 +24,7 @@ module.exports = {
         ],
     },
     resolve: {
-        extensions: [ '.tsx', '.ts', '.js' ],
+        extensions: ['.tsx', '.ts', '.js'],
     },
     plugins: [
         // https://webpack.js.org/plugins/copy-webpack-plugin/
@@ -32,17 +32,27 @@ module.exports = {
             title: 'Quartets | Liam L',
             patterns: [
                 { from: "src", to: "dst" },
-              ],
+            ],
         }),
         // https://webpack.js.org/plugins/eslint-webpack-plugin/
         new ESLintPlugin({
-            extensions: [ '.tsx', '.ts', '.js' ],
+            extensions: ['.tsx', '.ts', '.js'],
         }),
     ],
+    devServer: {
+        static: {
+            directory: path.resolve(__dirname, 'public'),
+        },
+        compress: true,
+        port: 9000
+    },
     output: {
-        filename: 'bundle.js',
+        filename: '[name].js',
         path: path.resolve(__dirname, 'dist'),
         clean: true
     },
-    
+   
+    optimization: {
+        runtimeChunk: 'single',
+    },
 };
