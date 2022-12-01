@@ -41,7 +41,7 @@ export class Game {
 
         this.golArray = [];
 
-        this.mainCanvasCtx.fillStyle = '#FFFFFF';
+        this.mainCanvasCtx.fillStyle = '#B47EA1';
         this.mainCanvasCtx.fillRect(0, 0, this.__CANVAS_HEIGHT__, this.__CANVAS_HEIGHT__);
 
         // this.mainCanvasCtx.strokeStyle = '#ff0000';
