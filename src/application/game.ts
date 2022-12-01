@@ -1,5 +1,6 @@
 import { inject, singleton } from 'tsyringe';
 import { IHtmlService } from "../core/graphics/html/IHtmlService";
+import { RandomHexColorGenerator } from '../core/tools/random_color.generator';
 
 @singleton()
 export class Game {
@@ -14,6 +15,11 @@ export class Game {
 
     private __ARRAY_CELLS_WIDE__ = 35;
     private __ARRAY_CELLS_HIGH__ = 35;
+
+    private loopCount = 0;
+
+    private readonly cellHeight = this.__CANVAS_HEIGHT__ / this.__ARRAY_CELLS_HIGH__;
+    private readonly cellWidth = this.__CANVAS_WIDTH__ / this.__ARRAY_CELLS_WIDE__;
 
     constructor(@inject("IHtmlService") private htmlService: IHtmlService) {
     }
@@ -34,8 +40,6 @@ export class Game {
         this.mainCanvasCtx = this.mainCanvas.getContext('2d');
 
         this.golArray = [];
-        const cellHeight = this.__CANVAS_HEIGHT__ / this.__ARRAY_CELLS_HIGH__;
-        const cellWidth = this.__CANVAS_WIDTH__ / this.__ARRAY_CELLS_WIDE__;
 
         this.mainCanvasCtx.fillStyle = '#FFFFFF';
         this.mainCanvasCtx.fillRect(0, 0, this.__CANVAS_HEIGHT__, this.__CANVAS_HEIGHT__);
@@ -46,11 +50,11 @@ export class Game {
             this.golArray[x] = [];
             for (let y = 0; y < this.__ARRAY_CELLS_WIDE__; y++) {
                 this.golArray[x][y] = false;
-                const drawLocationY = x * cellWidth;
-                const drawLocationX = y * cellHeight;
+                const drawLocationY = x * this.cellWidth;
+                const drawLocationX = y * this.cellHeight;
                 
-                this.mainCanvasCtx.strokeRect(drawLocationX, drawLocationY, cellWidth, cellHeight);
-                console.log('drawing at ' + ' ' + drawLocationX + ' ' + drawLocationY + ' ' + cellWidth + ' ' + cellHeight);
+                this.mainCanvasCtx.strokeRect(drawLocationX, drawLocationY, this.cellWidth, this.cellHeight);
+                // console.log('drawing at ' + ' ' + drawLocationX + ' ' + drawLocationY + ' ' + cellWidth + ' ' + cellHeight);
             }
         }
         
@@ -59,32 +63,34 @@ export class Game {
 
 
     private Loop() {
-        console.log('Loop has been called');
-
+        this.loopCount++;
+        if (this.loopCount === 10000) {
+            this.loopCount = 0;
+        }
         requestAnimationFrame(() => {
 
             // this.mainCanvasCtx.fillStyle = '#000000';
             // this.mainCanvasCtx.fillRect(0, 0, this.__CANVAS_HEIGHT__, this.__CANVAS_HEIGHT__);
 
 
+            if (this.loopCount % 10 === 0) {
+                console.log('Loop has been called');
+
+                for (let x = 0; x < this.__ARRAY_CELLS_HIGH__; x++) {
+                    for (let y = 0; y < this.__ARRAY_CELLS_WIDE__; y++) {
+                        this.golArray[x][y] = false;
+                        const drawLocationY = x * this.cellWidth;
+                        const drawLocationX = y * this.cellHeight;
+                        
+                        this.mainCanvasCtx.strokeStyle = RandomHexColorGenerator.GetRandomHexColor();
 
 
-            for (let x = 0; x < this.__ARRAY_CELLS_HIGH__; x++) {
-                for (let y = 0; y < this.__ARRAY_CELLS_WIDE__; y++) {
-                    // if (this.golArray[x][y] === true){
-                    //   a  
-                    // } 
-
-
-                    //this.mainCanvasCtx.fillRect(0, 0, this.__CANVAS_HEIGHT__, this.__CANVAS_HEIGHT__);
+                        this.mainCanvasCtx.strokeRect(drawLocationX, drawLocationY, this.cellWidth, this.cellHeight);
+                    }
                 }
             }
 
-            // if (this.running){
-
-            // }
-
-            // this.Loop();
+            this.Loop();
         });
     }
 
